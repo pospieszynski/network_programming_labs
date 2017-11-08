@@ -1,9 +1,7 @@
-require 'socket'        # Sockets are in standard library
+require 'socket'
 
 hostname = 'localhost'
 port = 12000
-
-
 
 loop {
   begin

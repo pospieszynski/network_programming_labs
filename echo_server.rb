@@ -1,13 +1,12 @@
-require 'socket'                 # Get sockets from stdlib
+require 'socket'
 
+server = TCPServer.open(12000)
 
-server = TCPServer.open(12000)    # Socket to listen on port 2000
-
-loop {                           # Servers run forever
+loop {
   Thread.fork(server.accept) do |client|
-    message =  client.gets
+    message = client.gets
     client.puts("Echo message: #{message}")
     puts message
-    client.close                  # Disconnect from the client
+    client.close
   end
 }
